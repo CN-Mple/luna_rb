@@ -34,7 +34,7 @@ size_t luna_rb_read(struct luna_rb *rb, uint8_t *bytes, size_t len);
 size_t luna_rb_write(struct luna_rb *rb, const uint8_t *bytes, size_t len);
 
 size_t luna_rb_drop(struct luna_rb *rb, size_t len);
-void luna_rb_wipe(struct luna_rb *rb);
+size_t luna_rb_wipe(struct luna_rb *rb);
 size_t luna_rb_size(struct luna_rb *rb);
 
 #endif
@@ -164,10 +164,10 @@ size_t luna_rb_drop(struct luna_rb *rb, size_t len)
 	return len;
 }
 
-void luna_rb_wipe(struct luna_rb *rb)
+size_t luna_rb_wipe(struct luna_rb *rb)
 {
 	LUNA_ASSERT(rb);
-	luna_rb_drop(rb, luna_rb_get_used(rb));
+	return luna_rb_drop(rb, luna_rb_get_used(rb));
 }
 
 size_t luna_rb_size(struct luna_rb *rb)
