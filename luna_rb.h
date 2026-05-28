@@ -39,7 +39,6 @@ size_t luna_rb_size(struct luna_rb *rb);
 
 #endif
 
-#define LUNA_RB_IMPLEMENTATION
 #ifdef  LUNA_RB_IMPLEMENTATION
 
 void luna_rb_init(struct luna_rb *rb, uint8_t *buffer, size_t size)
